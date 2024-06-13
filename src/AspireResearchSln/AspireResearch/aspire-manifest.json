@@ -1,0 +1,30 @@
+{
+  "resources": {
+    "storageAccountName": {
+      "type": "parameter.v0",
+      "value": "{storageAccountName.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "videoIndexerAccountName": {
+      "type": "parameter.v0",
+      "value": "{videoIndexerAccountName.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "mynewvi": {
+      "type": "azure.bicep.v0",
+      "path": "../infra/azure-video-indexer/videoindexer.bicep",
+      "params": {
+        "storageAccountName": "{storageAccountName.value}",
+        "videoIndexerAccountName": "{videoIndexerAccountName.value}"
+      }
+    }
+  }
+}
